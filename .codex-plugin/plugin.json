@@ -1,0 +1,43 @@
+{
+  "name": "ace-music",
+  "version": "0.1.0",
+  "description": "Create ACE Music songs and lyrics, upload reference audio, cover one owned track, blend two, and retrieve the original task.",
+  "author": {
+    "name": "Ace Data Cloud",
+    "email": "dev@acedata.cloud",
+    "url": "https://github.com/AceDataCloud"
+  },
+  "homepage": "https://github.com/AceDataCloud/ACEMusicCodex#readme",
+  "repository": "https://github.com/AceDataCloud/ACEMusicCodex",
+  "license": "MIT",
+  "keywords": [
+    "ace-music",
+    "acemusic",
+    "music",
+    "audio",
+    "lyrics",
+    "acedatacloud"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "ACE Music by Ace Data Cloud",
+    "shortDescription": "ACE Music songs, references and task results",
+    "longDescription": "Create ACE Music songs and lyrics, upload reference audio, cover one owned track, blend two, and retrieve the original task.",
+    "developerName": "Ace Data Cloud",
+    "category": "Creativity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://platform.acedata.cloud/services/acemusic",
+    "defaultPrompt": [
+      "List the ACE Music models and capabilities.",
+      "Create an ACE Music song from my lyrics.",
+      "Retrieve my existing ACE Music task."
+    ],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "screenshots": []
+  }
+}

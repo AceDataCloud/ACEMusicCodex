@@ -1,7 +1,7 @@
 {
   "name": "acedatacloud-ace-music",
   "interface": {
-    "displayName": "ACE Music by Ace Data Cloud"
+    "displayName": "ACE Music"
   },
   "plugins": [
     {

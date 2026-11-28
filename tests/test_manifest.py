@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import unittest
+from urllib.parse import parse_qs, urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,6 +13,19 @@ class PluginContract(unittest.TestCase):
         market = json.loads((ROOT / ".agents/plugins/marketplace.json").read_text())
         entry, = market["plugins"]
         self.assertEqual(entry["name"], manifest["name"])
+        self.assertEqual(market["interface"]["displayName"], "ACE Music")
+        self.assertEqual(manifest["interface"]["displayName"], "ACE Music")
+        self.assertEqual(manifest["interface"]["developerName"], "Ace Data Cloud")
+        for field in ("composerIcon", "logo"):
+            self.assertTrue((ROOT / manifest["interface"][field]).is_file())
+        website = urlsplit(manifest["interface"]["websiteURL"])
+        self.assertEqual((website.netloc, website.path), ("platform.acedata.cloud", "/services/acemusic"))
+        self.assertEqual(parse_qs(website.query), {
+            "utm_source": ["codex"],
+            "utm_medium": ["referral"],
+            "utm_campaign": ["evergreen"],
+            "utm_content": ["acemusiccodex_manifest_website"],
+        })
         config = json.loads((ROOT / manifest["mcpServers"]).read_text())
         server = config["mcpServers"]["acemusic"]
         self.assertEqual(server["bearer_token_env_var"], "ACEDATACLOUD_API_TOKEN")
